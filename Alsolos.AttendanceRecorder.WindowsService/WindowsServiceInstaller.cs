@@ -20,6 +20,7 @@
             serviceInstaller.StartType = ServiceStartMode.Automatic;
 
             serviceInstaller.ServiceName = "Attendance Recorder Service";
+            serviceInstaller.Description = "Tracks the time a certain user is logged in and provides a web API.";
 
             Installers.Add(serviceProcessInstaller);
             Installers.Add(serviceInstaller);

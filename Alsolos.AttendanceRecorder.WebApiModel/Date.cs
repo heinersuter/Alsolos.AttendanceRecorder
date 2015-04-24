@@ -48,6 +48,11 @@
             return CompareTo((Date)obj);
         }
 
+        public bool Equals(DateTime dateTime)
+        {
+            return Year == dateTime.Year && Month == dateTime.Month && Day == dateTime.Day;
+        }
+
         protected bool Equals(Date other)
         {
             return Year == other.Year && Month == other.Month && Day == other.Day;

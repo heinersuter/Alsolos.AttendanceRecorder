@@ -9,7 +9,7 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance views:DaysViewModel}">
 
-    <commons:BusyContentControl IsBusy="{Binding BusyHelper.IsBusy}" Message="{Binding BusyHelper.Message}">
+    <commons:BusyContentControl>
         <ItemsControl Style="{StaticResource PairControlFillBottomStyle}">
 
             <Grid Margin="8">
