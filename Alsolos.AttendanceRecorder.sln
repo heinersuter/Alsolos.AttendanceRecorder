@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.Commons", "..\Alsolos.Commons\Alsolos.Commons\Alsolos.Commons.csproj", "{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.WindowsService", "Alsolos.AttendanceRecorder.WindowsService\Alsolos.AttendanceRecorder.WindowsService.csproj", "{743E2A54-3EB4-4782-8D99-D1484470D17B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.LocalService", "Alsolos.AttendanceRecorder.LocalService\Alsolos.AttendanceRecorder.LocalService.csproj", "{C103A88A-DDFF-411E-9D40-B17B337ED2BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.Client", "Alsolos.AttendanceRecorder.Client\Alsolos.AttendanceRecorder.Client.csproj", "{9E552B7A-4E38-400F-B898-E50F21B3CC7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.WebApi", "Alsolos.AttendanceRecorder.WebApi\Alsolos.AttendanceRecorder.WebApi.csproj", "{3CB90043-46A2-46ED-9806-40D7EC205134}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.WebApiModel", "Alsolos.AttendanceRecorder.WebApiModel\Alsolos.AttendanceRecorder.WebApiModel.csproj", "{61B15EA5-F90C-40A7-94C7-DBCE46D89DBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{743E2A54-3EB4-4782-8D99-D1484470D17B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{743E2A54-3EB4-4782-8D99-D1484470D17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{743E2A54-3EB4-4782-8D99-D1484470D17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{743E2A54-3EB4-4782-8D99-D1484470D17B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C103A88A-DDFF-411E-9D40-B17B337ED2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C103A88A-DDFF-411E-9D40-B17B337ED2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C103A88A-DDFF-411E-9D40-B17B337ED2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C103A88A-DDFF-411E-9D40-B17B337ED2BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E552B7A-4E38-400F-B898-E50F21B3CC7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E552B7A-4E38-400F-B898-E50F21B3CC7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E552B7A-4E38-400F-B898-E50F21B3CC7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E552B7A-4E38-400F-B898-E50F21B3CC7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CB90043-46A2-46ED-9806-40D7EC205134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CB90043-46A2-46ED-9806-40D7EC205134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CB90043-46A2-46ED-9806-40D7EC205134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CB90043-46A2-46ED-9806-40D7EC205134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61B15EA5-F90C-40A7-94C7-DBCE46D89DBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61B15EA5-F90C-40A7-94C7-DBCE46D89DBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61B15EA5-F90C-40A7-94C7-DBCE46D89DBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61B15EA5-F90C-40A7-94C7-DBCE46D89DBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

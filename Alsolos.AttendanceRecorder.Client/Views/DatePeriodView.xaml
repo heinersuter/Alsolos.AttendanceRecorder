@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="Alsolos.AttendanceRecorder.Client.Views.DatePeriodView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:views="clr-namespace:Alsolos.AttendanceRecorder.Client.Views"
+             xmlns:commons="http://alsolos.ch/Commons"
+             mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance views:DatePeriodViewModel}">
+
+    <commons:BusyContentControl IsBusy="{Binding BusyHelper.IsBusy}" Message="{Binding BusyHelper.Message}">
+        <TabControl HorizontalAlignment="Stretch">
+    
+            <TabItem Header="Years">
+                <ListBox ItemsSource="{Binding Years}" SelectedIndex="{Binding SelectedYearIndex}"
+                HorizontalAlignment="Stretch" DisplayMemberPath="Name"/>
+            </TabItem>
+
+            <TabItem Header="Months">
+                <ListBox ItemsSource="{Binding Months}" SelectedIndex="{Binding SelectedMonthIndex}"
+                HorizontalAlignment="Stretch" DisplayMemberPath="Name"/>
+            </TabItem>
+
+            <TabItem Header="Weeks" IsSelected="True">
+                <ListBox ItemsSource="{Binding Weeks}" SelectedIndex="{Binding SelectedWeekIndex}"
+                HorizontalAlignment="Stretch" DisplayMemberPath="Name"/>
+            </TabItem>
+
+        </TabControl>
+    </commons:BusyContentControl>
+
+</UserControl>
