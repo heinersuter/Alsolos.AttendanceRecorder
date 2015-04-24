@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:Alsolos.AttendanceRecorder.Client.Views"
              xmlns:converters="clr-namespace:Alsolos.AttendanceRecorder.Client.Views.Converters"
-             xmlns:commons="http://alsolos.ch/Commons"
+             xmlns:commons="http://alsolos.ch/Commons/Wpf"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance views:DaysViewModel}">
 

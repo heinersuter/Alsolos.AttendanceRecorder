@@ -2,7 +2,7 @@
 {
     using System;
     using System.Globalization;
-    using Alsolos.Commons.Mvvm.Converters;
+    using Alsolos.Commons.Wpf.Mvvm.Converters;
 
     public class TimeSpanToTotalHoursConverter : ValueConverter
     {

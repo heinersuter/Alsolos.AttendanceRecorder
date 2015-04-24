@@ -4,9 +4,9 @@
     using Alsolos.AttendanceRecorder.Client.Models;
     using Alsolos.AttendanceRecorder.Client.Views.Model;
     using Alsolos.AttendanceRecorder.WebApiModel;
-    using Alsolos.Commons.Mvvm;
+    using Alsolos.Commons.Wpf.Mvvm;
 
-    public class IntervalViewModel : BackingFieldsHolder
+    public class IntervalViewModel : ViewModel
     {
         public Date Date
         {

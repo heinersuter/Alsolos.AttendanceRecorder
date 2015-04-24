@@ -8,8 +8,8 @@
     using Alsolos.AttendanceRecorder.Client.Services;
     using Alsolos.AttendanceRecorder.Client.Views.Model;
     using Alsolos.AttendanceRecorder.WebApiModel;
-    using Alsolos.Commons.Controls.Progress;
-    using Alsolos.Commons.Mvvm;
+    using Alsolos.Commons.Wpf.Controls.Progress;
+    using Alsolos.Commons.Wpf.Mvvm;
 
     public class DayViewModel : BusyViewModel, IDisposable
     {

@@ -4,11 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:Alsolos.AttendanceRecorder.Client.Views"
-             xmlns:converters="http://alsolos.ch/Commons"
+             xmlns:commons="http://alsolos.ch/Commons/Wpf"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance views:DayViewModel}">
 
-    <converters:BusyContentControl IsBusy="{Binding BusyHelper.IsBusy}" Message="{Binding BusyHelper.Message}">
+    <commons:BusyContentControl IsBusy="{Binding BusyHelper.IsBusy}" Message="{Binding BusyHelper.Message}">
         <StackPanel>
 
             <Grid>
@@ -20,9 +20,9 @@
                     </StackPanel>
                     <Grid Margin="10 8">
                         <Image Source="/Images/Plus.png" Width="18" Height="18" 
-                            Visibility="{Binding IsExpanded, Converter={converters:BoolToVisibilityConverter}, ConverterParameter=True}"/>
+                            Visibility="{Binding IsExpanded, Converter={commons:BoolToVisibilityConverter}, ConverterParameter=True}"/>
                         <Image Source="/Images/Minus.png" Width="18" Height="18" 
-                            Visibility="{Binding IsExpanded, Converter={converters:BoolToVisibilityConverter}}"/>
+                            Visibility="{Binding IsExpanded, Converter={commons:BoolToVisibilityConverter}}"/>
                     </Grid>
                 </ItemsControl>
                 <ToggleButton IsChecked="{Binding IsExpanded}" Opacity="0"
@@ -31,7 +31,7 @@
             </Grid>
 
             <ItemsControl ItemsSource="{Binding Intervals}" HorizontalContentAlignment="Stretch" Grid.IsSharedSizeScope="True"
-                Visibility="{Binding IsExpanded, Converter={converters:BoolToVisibilityConverter}}" Margin="8 0">
+                Visibility="{Binding IsExpanded, Converter={commons:BoolToVisibilityConverter}}" Margin="8 0">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <views:IntervalView/>
@@ -40,6 +40,6 @@
             </ItemsControl>
 
         </StackPanel>
-    </converters:BusyContentControl>
+    </commons:BusyContentControl>
 
 </UserControl>

@@ -7,7 +7,7 @@
     using Alsolos.AttendanceRecorder.Client.Services;
     using Alsolos.AttendanceRecorder.Client.Views.Model;
     using Alsolos.AttendanceRecorder.WebApiModel;
-    using Alsolos.Commons.Controls.Progress;
+    using Alsolos.Commons.Wpf.Controls.Progress;
 
     public class DatePeriodViewModel : BusyViewModel
     {

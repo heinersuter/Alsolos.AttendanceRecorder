@@ -1,7 +1,7 @@
 ﻿namespace Alsolos.AttendanceRecorder.Client.Views
 {
     using System.ComponentModel;
-    using Alsolos.Commons.Mvvm;
+    using Alsolos.Commons.Wpf.Mvvm;
 
     public class IntervalsSelectorViewModel : ViewModel
     {

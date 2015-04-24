@@ -8,7 +8,7 @@
     using Alsolos.AttendanceRecorder.Client.Models;
     using Alsolos.AttendanceRecorder.Client.Services;
     using Alsolos.AttendanceRecorder.Client.Views.Model;
-    using Alsolos.Commons.Controls.Progress;
+    using Alsolos.Commons.Wpf.Controls.Progress;
 
     public class DaysViewModel : BusyViewModel
     {

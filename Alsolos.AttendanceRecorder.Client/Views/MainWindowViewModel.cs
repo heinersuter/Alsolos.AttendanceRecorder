@@ -1,6 +1,6 @@
 ﻿namespace Alsolos.AttendanceRecorder.Client.Views
 {
-    using Alsolos.Commons.Mvvm;
+    using Alsolos.Commons.Wpf.Mvvm;
 
     public class MainWindowViewModel : ViewModel
     {
