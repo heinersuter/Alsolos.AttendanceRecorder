@@ -28,14 +28,8 @@
         [XmlElement(ElementName = "Date")]
         public string DateXmlString
         {
-            get
-            {
-                return string.Format("{0:D4}-{1:D2}-{2:D2}", Date.Year, Date.Month, Date.Day);
-            }
-            set
-            {
-                Date = new Date(DateTime.Parse(value, CultureInfo.InvariantCulture));
-            }
+            get { return string.Format("{0:D4}-{1:D2}-{2:D2}", Date.Year, Date.Month, Date.Day); }
+            set { Date = new Date(DateTime.Parse(value, CultureInfo.InvariantCulture)); }
         }
 
         [XmlIgnore]
@@ -46,14 +40,8 @@
         [XmlElement(DataType = "duration", ElementName = "Start")]
         public string StartXmlString
         {
-            get
-            {
-                return XmlConvert.ToString(Start);
-            }
-            set
-            {
-                Start = string.IsNullOrEmpty(value) ? TimeSpan.Zero : XmlConvert.ToTimeSpan(value);
-            }
+            get { return XmlConvert.ToString(Start); }
+            set { Start = string.IsNullOrEmpty(value) ? TimeSpan.Zero : XmlConvert.ToTimeSpan(value); }
         }
 
         [XmlIgnore]
@@ -64,14 +52,8 @@
         [XmlElement(DataType = "duration", ElementName = "End")]
         public string EndXmlString
         {
-            get
-            {
-                return XmlConvert.ToString(End);
-            }
-            set
-            {
-                End = string.IsNullOrEmpty(value) ? TimeSpan.Zero : XmlConvert.ToTimeSpan(value);
-            }
+            get { return XmlConvert.ToString(End); }
+            set { End = string.IsNullOrEmpty(value) ? TimeSpan.Zero : XmlConvert.ToTimeSpan(value); }
         }
 
         [DataMember]

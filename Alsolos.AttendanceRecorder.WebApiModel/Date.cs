@@ -30,62 +30,6 @@
 
         public DateTime DateTime { get; private set; }
 
-        public int CompareTo(Date other)
-        {
-            if (this < other)
-            {
-                return -1;
-            }
-            if (this > other)
-            {
-                return 1;
-            }
-            return 0;
-        }
-
-        public int CompareTo(object obj)
-        {
-            return CompareTo((Date)obj);
-        }
-
-        public bool Equals(DateTime dateTime)
-        {
-            return Year == dateTime.Year && Month == dateTime.Month && Day == dateTime.Day;
-        }
-
-        protected bool Equals(Date other)
-        {
-            return Year == other.Year && Month == other.Month && Day == other.Day;
-        }
-
-        public override bool Equals(object obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-            return Equals((Date)obj);
-        }
-
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                var hashCode = Year;
-                hashCode = (hashCode * 397) ^ Month;
-                hashCode = (hashCode * 397) ^ Day;
-                return hashCode;
-            }
-        }
-
         public static bool operator ==(Date left, Date right)
         {
             return Equals(left, right);
@@ -118,6 +62,62 @@
         public static bool operator <=(Date left, Date right)
         {
             return left < right || left == right;
+        }
+
+        public int CompareTo(Date other)
+        {
+            if (this < other)
+            {
+                return -1;
+            }
+            if (this > other)
+            {
+                return 1;
+            }
+            return 0;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return CompareTo((Date)obj);
+        }
+
+        public bool Equals(DateTime dateTime)
+        {
+            return Year == dateTime.Year && Month == dateTime.Month && Day == dateTime.Day;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+            return Equals((Date)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                var hashCode = Year;
+                hashCode = (hashCode * 397) ^ Month;
+                hashCode = (hashCode * 397) ^ Day;
+                return hashCode;
+            }
+        }
+
+        protected bool Equals(Date other)
+        {
+            return Year == other.Year && Month == other.Month && Day == other.Day;
         }
     }
 }

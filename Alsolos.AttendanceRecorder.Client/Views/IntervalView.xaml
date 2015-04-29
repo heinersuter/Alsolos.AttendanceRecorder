@@ -11,12 +11,13 @@
         <Style TargetType="{x:Type UserControl}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Type}" Value="Active">
-                    <Setter Property="Background" Value="#C3FF9A"/>
+                    <!--<Setter Property="Background" Value="#fed7bf"/>-->
+                    <Setter Property="TextBlock.Foreground" Value="#4d4d4d"/>
                     <Setter Property="Height" Value="32"/>
                 </DataTrigger>
                 <DataTrigger Binding="{Binding Type}" Value="Inactive">
-                    <Setter Property="Background" Value="LightGray"/>
-                    <Setter Property="TextBlock.Foreground" Value="DimGray"/>
+                    <!--<Setter Property="Background" Value="#dbcfbd"/>-->
+                    <Setter Property="TextBlock.Foreground" Value="#c0c0c0"/>
                 </DataTrigger>
             </Style.Triggers>
         </Style>

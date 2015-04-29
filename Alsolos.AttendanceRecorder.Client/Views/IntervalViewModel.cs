@@ -38,9 +38,9 @@
             private set { BackingFields.SetValue(value); }
         }
 
-        private TimeSpan UpdateDuration()
+        public bool IsDeletePossible
         {
-            return Duration = End - Start;
+            get { return Start != TimeSpan.Zero && End != DayViewModel.Midnight; }
         }
 
         public Interval AsInterval()
@@ -48,9 +48,9 @@
             return new Interval { Date = Date, Start = Start, End = End };
         }
 
-        public bool IsDeletePossible
+        private TimeSpan UpdateDuration()
         {
-            get { return Start != TimeSpan.Zero && End != DayViewModel.Midnight; }
+            return Duration = End - Start;
         }
     }
 }

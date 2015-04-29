@@ -67,6 +67,14 @@
             get { return BackingFields.GetCommand<IntervalViewModel>(Delete); }
         }
 
+        public void Dispose()
+        {
+            if (_timer != null)
+            {
+                _timer.Dispose();
+            }
+        }
+
         private async void Delete(IntervalViewModel interval)
         {
             using (BusyHelper.Enter("Removing intervals..."))
@@ -125,14 +133,6 @@
             }
             Intervals = new List<IntervalViewModel>(intervals);
             RaisePropertyChanged(() => TotalTime);
-        }
-
-        public void Dispose()
-        {
-            if (_timer != null)
-            {
-                _timer.Dispose();
-            }
         }
     }
 }
