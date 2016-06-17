@@ -8,6 +8,7 @@
     public class LocalFileSystemStore
     {
         private readonly string _file;
+        private readonly string _tempFile;
 
         private readonly XmlSerializer _serializer = new XmlSerializer(typeof(List<Interval>));
 
@@ -20,10 +21,15 @@
                 Directory.CreateDirectory(dir);
             }
             _file = Path.Combine(dir, "intervals.xml");
+            _tempFile = Path.Combine(dir, "intervals_temp.xml");
         }
 
         public void Save(IList<Interval> intervals)
         {
+            if (File.Exists(_file))
+            {
+                File.Copy(_file, _tempFile, true);
+            }
             using (var stream = new FileStream(_file, FileMode.Create, FileAccess.Write))
             {
                 _serializer.Serialize(stream, intervals);
