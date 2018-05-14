@@ -4,9 +4,9 @@
 
     public interface IIntervalCollection
     {
-        IEnumerable<IInterval> Intervals { get; }
+        IEnumerable<Interval> Intervals { get; }
 
-        bool Remove(IInterval interval);
+        bool Remove(Interval interval);
 
         bool Merge(IntervalPair intervalPair);
     }

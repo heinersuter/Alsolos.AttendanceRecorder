@@ -25,9 +25,9 @@
                 <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding TotalTime, Converter={converters:TimeSpanToTotalHoursConverter}}" 
                     Margin="16 0" VerticalAlignment="Center"/>
                 <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
-                    <TextBlock Text="{Binding DatePeriod.Start.DateTime, StringFormat=d}"/>
+                    <TextBlock Text="{Binding DatePeriod.Start, StringFormat=d}"/>
                     <TextBlock Text="..." Margin="3 0"/>
-                    <TextBlock Text="{Binding DatePeriod.End.DateTime, StringFormat=d}"/>
+                    <TextBlock Text="{Binding DatePeriod.End, StringFormat=d}"/>
                 </StackPanel>
             </Grid>
 

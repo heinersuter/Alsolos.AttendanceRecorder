@@ -30,9 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.4\lib\net45\NLog.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,21 +47,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AggregatorService.cs" />
     <Compile Include="AttendanceRecorderService.cs" />
-    <Compile Include="Interval.cs" />
-    <Compile Include="IntervalAggregator.cs" />
+    <Compile Include="IntervalCollection.cs" />
+    <Compile Include="IntervalComparer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LocalFileSystemStore.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Alsolos.AttendanceRecorder.WebApiModel\Alsolos.AttendanceRecorder.WebApiModel.csproj">
-      <Project>{61B15EA5-F90C-40A7-94C7-DBCE46D89DBD}</Project>
-      <Name>Alsolos.AttendanceRecorder.WebApiModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Alsolos.AttendanceRecorder.WebApi\Alsolos.AttendanceRecorder.WebApi.csproj">
       <Project>{3cb90043-46a2-46ed-9806-40d7ec205134}</Project>
       <Name>Alsolos.AttendanceRecorder.WebApi</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

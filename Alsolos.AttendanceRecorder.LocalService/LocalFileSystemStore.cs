@@ -1,52 +1,81 @@
-﻿namespace Alsolos.AttendanceRecorder.LocalService
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using Alsolos.AttendanceRecorder.WebApi.Model;
+using NLog;
+
+namespace Alsolos.AttendanceRecorder.LocalService
 {
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Xml.Serialization;
 
     public class LocalFileSystemStore
     {
-        private readonly string _file;
-        private readonly string _tempFile;
+        private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
 
-        private readonly XmlSerializer _serializer = new XmlSerializer(typeof(List<Interval>));
+        private readonly string _directory;
 
         public LocalFileSystemStore()
         {
-            var dir = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments);
-            dir = Path.Combine(dir, "..\\AttendanceRecorder");
-            if (!Directory.Exists(dir))
+            _directory = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments);
+            _directory = Path.Combine(_directory, "..\\AttendanceRecorder");
+            if (!Directory.Exists(_directory))
             {
-                Directory.CreateDirectory(dir);
-            }
-            _file = Path.Combine(dir, "intervals.xml");
-            _tempFile = Path.Combine(dir, "intervals_temp.xml");
-        }
-
-        public void Save(IList<Interval> intervals)
-        {
-            if (File.Exists(_file))
-            {
-                File.Copy(_file, _tempFile, true);
-            }
-            using (var stream = new FileStream(_file, FileMode.Create, FileAccess.Write))
-            {
-                _serializer.Serialize(stream, intervals);
+                Directory.CreateDirectory(_directory);
             }
         }
 
-        public IList<Interval> Load()
+        public void SaveLifeSign()
         {
-            if (!File.Exists(_file))
+            var lifeSign = DateTime.Now;
+            lifeSign = lifeSign.AddTicks(-(lifeSign.Ticks % TimeSpan.TicksPerSecond));
+
+            var filePath = Path.Combine(_directory, $"{lifeSign:yyyy-MM-dd}.aar");
+            File.AppendAllText(filePath, lifeSign.ToString("O") + Environment.NewLine);
+            Logger.Trace($"LifeSign: {lifeSign:O}");
+        }
+
+        public IEnumerable<DateTime> LoadAllLifeSigns()
+        {
+            return Directory.GetFiles(_directory, "*.aar")
+                .SelectMany(file => File.ReadAllLines(file)
+                    .Select(s => DateTime.Parse(s, CultureInfo.InvariantCulture)));
+        }
+
+        public void SaveRemoval(Interval interval)
+        {
+            var filePath = Path.Combine(_directory, $"{interval.Start:yyyy-MM-dd}.rem");
+            File.AppendAllText(filePath, $"{interval.Start:O} - {interval.End:O}" + Environment.NewLine);
+        }
+
+        public IEnumerable<Interval> LoadAllRemovals()
+        {
+            return Directory.GetFiles(_directory, "*.rem")
+                .SelectMany(file => File.ReadAllLines(file)
+                    .Select(ParseInterval));
+        }
+
+        public void SaveMerge(IntervalPair intervalPair)
+        {
+            var filePath = Path.Combine(_directory, $"{intervalPair.Interval1.Start:yyyy-MM-dd}.mer");
+            File.AppendAllText(filePath, $"{intervalPair.Interval1.End:O} - {intervalPair.Interval2.Start:O}" + Environment.NewLine);
+        }
+
+        public IEnumerable<Interval> LoadAllMerges()
+        {
+            return Directory.GetFiles(_directory, "*.mer")
+                .SelectMany(file => File.ReadAllLines(file)
+                    .Select(ParseInterval));
+        }
+
+        private static Interval ParseInterval(string line)
+        {
+            var parts = line.Split(new[] { " - " }, StringSplitOptions.RemoveEmptyEntries);
+            return new Interval
             {
-                return new List<Interval>();
-            }
-            using (var stream = new FileStream(_file, FileMode.Open, FileAccess.Read))
-            {
-                var obj = _serializer.Deserialize(stream);
-                return obj as IList<Interval>;
-            }
+                Start = DateTime.Parse(parts[0], CultureInfo.InvariantCulture),
+                End = DateTime.Parse(parts[1], CultureInfo.InvariantCulture)
+            };
         }
     }
 }

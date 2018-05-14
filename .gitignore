@@ -5,3 +5,4 @@ packages
 *.user
 *.InstallLog
 StyleCop.Cache
+/.vs

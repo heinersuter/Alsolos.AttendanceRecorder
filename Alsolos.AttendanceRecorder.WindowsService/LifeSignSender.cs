@@ -8,7 +8,7 @@
 
     public class LifeSignSender : IDisposable
     {
-        private readonly TimeSpan _updatePeriod = new TimeSpan(0, 0, 10);
+        private readonly TimeSpan _updatePeriod = new TimeSpan(0, 0, 30);
         private readonly ManualResetEvent _runEvent = new ManualResetEvent(false);
         private readonly BackgroundWorker _backgroundWorker = new BackgroundWorker();
         private readonly AttendanceRecorderService _service;

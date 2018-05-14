@@ -3,14 +3,13 @@
     using System;
     using Alsolos.AttendanceRecorder.Client.Models;
     using Alsolos.AttendanceRecorder.Client.Views.Model;
-    using Alsolos.AttendanceRecorder.WebApiModel;
     using Alsolos.Commons.Wpf.Mvvm;
 
     public class IntervalViewModel : ViewModel
     {
-        public Date Date
+        public DateTime Date
         {
-            get { return BackingFields.GetValue<Date>(); }
+            get { return BackingFields.GetValue<DateTime>(); }
             set { BackingFields.SetValue(value); }
         }
 
@@ -45,7 +44,7 @@
 
         public Interval AsInterval()
         {
-            return new Interval { Date = Date, Start = Start, End = End };
+            return new Interval { Start = Date.Add(Start), End = Date.Add(End) };
         }
 
         private TimeSpan UpdateDuration()

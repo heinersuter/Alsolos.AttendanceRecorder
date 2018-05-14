@@ -2,8 +2,8 @@
 {
     public class IntervalPair
     {
-        public ReceivedInterval Interval1 { get; set; }
+        public Interval Interval1 { get; set; }
 
-        public ReceivedInterval Interval2 { get; set; }
+        public Interval Interval2 { get; set; }
     }
 }

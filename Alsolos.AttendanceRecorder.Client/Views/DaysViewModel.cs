@@ -57,7 +57,7 @@
                     }
                 }
 
-                var dayGroupings = intervals.GroupBy(interval => interval.Date);
+                var dayGroupings = intervals.GroupBy(interval => interval.Start.Date);
                 Days = dayGroupings.Select(grouping =>
                 {
                     var dayViewModel = new DayViewModel(grouping.Key, grouping.ToList());
@@ -89,7 +89,7 @@
         private void ExpandToday()
         {
             var firstDay = Days.FirstOrDefault();
-            if (firstDay != null && firstDay.Date.DateTime.Date == DateTime.Now.Date)
+            if (firstDay != null && firstDay.Date.Date == DateTime.Now.Date)
             {
                 firstDay.IsExpanded = true;
             }

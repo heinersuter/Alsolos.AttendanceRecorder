@@ -1,4 +1,4 @@
-﻿namespace Alsolos.AttendanceRecorder.Client.Models
+﻿namespace Alsolos.AttendanceRecorder.WebApi.Model
 {
     using System;
 

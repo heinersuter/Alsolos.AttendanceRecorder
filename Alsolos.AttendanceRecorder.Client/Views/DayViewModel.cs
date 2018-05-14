@@ -7,7 +7,6 @@
     using Alsolos.AttendanceRecorder.Client.Models;
     using Alsolos.AttendanceRecorder.Client.Services;
     using Alsolos.AttendanceRecorder.Client.Views.Model;
-    using Alsolos.AttendanceRecorder.WebApiModel;
     using Alsolos.Commons.Wpf.Controls.Progress;
     using Alsolos.Commons.Wpf.Mvvm;
 
@@ -18,12 +17,12 @@
         private readonly IntervalService _intervalService = new IntervalService();
         private readonly Timer _timer;
 
-        public DayViewModel(Date date, IList<Interval> modelIntervals)
+        public DayViewModel(DateTime date, IList<Interval> modelIntervals)
         {
             Date = date;
-            Init(modelIntervals.Where(interval => interval.Date == Date).OrderBy(interval => interval.Start).ToList());
+            Init(modelIntervals.Where(interval => interval.Start.Date == Date).OrderBy(interval => interval.Start).ToList());
 
-            if (Date.DateTime == DateTime.Now.Date)
+            if (Date == DateTime.Now.Date)
             {
                 _timer = new Timer(_refreshTimerInterval.TotalMilliseconds);
                 _timer.Elapsed += (sender, args) =>
@@ -34,9 +33,9 @@
             }
         }
 
-        public Date Date
+        public DateTime Date
         {
-            get { return BackingFields.GetValue<Date>(); }
+            get { return BackingFields.GetValue<DateTime>(); }
             private set { BackingFields.SetValue(value); }
         }
 
@@ -116,15 +115,15 @@
             var intervals = new List<IntervalViewModel>();
             foreach (var interval in modelIntervals)
             {
-                if (interval.Start > lastTime)
+                if (interval.Start.TimeOfDay > lastTime)
                 {
                     // Add inactive intervall
-                    intervals.Add(new IntervalViewModel { Date = Date, Start = lastTime, End = interval.Start - TimeSpan.FromSeconds(1), Type = IntervalType.Inactive });
+                    intervals.Add(new IntervalViewModel { Date = Date, Start = lastTime, End = interval.Start.TimeOfDay - TimeSpan.FromSeconds(1), Type = IntervalType.Inactive });
                 }
 
                 // Add active intervall
-                intervals.Add(new IntervalViewModel { Date = Date, Start = interval.Start, End = interval.End, Type = IntervalType.Active });
-                lastTime = interval.End;
+                intervals.Add(new IntervalViewModel { Date = Date, Start = interval.Start.TimeOfDay, End = interval.End.TimeOfDay, Type = IntervalType.Active });
+                lastTime = interval.End.TimeOfDay;
             }
             if (lastTime < Midnight)
             {

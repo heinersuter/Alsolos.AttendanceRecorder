@@ -1,10 +1,10 @@
-﻿namespace Alsolos.AttendanceRecorder.Client.Views.Model
-{
-    using Alsolos.AttendanceRecorder.WebApiModel;
+﻿using System;
 
+namespace Alsolos.AttendanceRecorder.Client.Views.Model
+{
     public class DatePeriod
     {
-        public DatePeriod(DatePeriodType type, string name, Date start, Date end)
+        public DatePeriod(DatePeriodType type, string name, DateTime start, DateTime end)
         {
             Type = type;
             Name = name;
@@ -16,9 +16,9 @@
 
         public string Name { get; private set; }
 
-        public Date Start { get; private set; }
+        public DateTime Start { get; private set; }
 
-        public Date End { get; private set; }
+        public DateTime End { get; private set; }
 
         public override string ToString()
         {
