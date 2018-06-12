@@ -1,7 +1,7 @@
-﻿namespace Alsolos.AttendanceRecorder.WebApi.Model
-{
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
+namespace Alsolos.AttendanceRecorder.WebApi.Intervals
+{
     public interface IIntervalCollection
     {
         IEnumerable<Interval> Intervals { get; }

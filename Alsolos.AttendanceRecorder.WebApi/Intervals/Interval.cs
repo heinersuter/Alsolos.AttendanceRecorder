@@ -1,7 +1,7 @@
-﻿namespace Alsolos.AttendanceRecorder.WebApi.Model
-{
-    using System;
+﻿using System;
 
+namespace Alsolos.AttendanceRecorder.WebApi.Intervals
+{
     public class Interval
     {
         public DateTime Start { get; set; }

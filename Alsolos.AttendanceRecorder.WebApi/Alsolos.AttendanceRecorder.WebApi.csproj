@@ -76,10 +76,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\IntervalsController.cs" />
-    <Compile Include="Model\IIntervalCollection.cs" />
-    <Compile Include="Model\Interval.cs" />
-    <Compile Include="Model\IntervalPair.cs" />
+    <Compile Include="FileSystem\IFileSystemStore.cs" />
+    <Compile Include="Intervals\IntervalsController.cs" />
+    <Compile Include="Intervals\IIntervalCollection.cs" />
+    <Compile Include="Intervals\Interval.cs" />
+    <Compile Include="Intervals\IntervalPair.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="WebApiStarter.cs" />

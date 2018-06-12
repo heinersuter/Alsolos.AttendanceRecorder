@@ -1,5 +1,5 @@
 ﻿using System;
-using Alsolos.AttendanceRecorder.WebApi.Model;
+using Alsolos.AttendanceRecorder.WebApi.Intervals;
 
 namespace Alsolos.AttendanceRecorder.LocalService.Test
 {

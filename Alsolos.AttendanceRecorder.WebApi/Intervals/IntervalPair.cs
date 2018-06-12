@@ -1,4 +1,4 @@
-﻿namespace Alsolos.AttendanceRecorder.WebApi.Model
+﻿namespace Alsolos.AttendanceRecorder.WebApi.Intervals
 {
     public class IntervalPair
     {

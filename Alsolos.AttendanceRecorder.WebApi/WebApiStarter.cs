@@ -1,19 +1,24 @@
-﻿namespace Alsolos.AttendanceRecorder.WebApi
+﻿using Alsolos.AttendanceRecorder.WebApi.FileSystem;
+using Alsolos.AttendanceRecorder.WebApi.Intervals;
+
+namespace Alsolos.AttendanceRecorder.WebApi
 {
     using System;
-    using Alsolos.AttendanceRecorder.WebApi.Model;
     using Microsoft.Owin.Hosting;
 
     public class WebApiStarter : IDisposable
     {
         private IDisposable _webApiService;
 
-        public WebApiStarter(IIntervalCollection intervalCollection)
+        public WebApiStarter(IIntervalCollection intervalCollection, IFileSystemStore fileSystemStore)
         {
             IntervalCollection = intervalCollection;
+            FileSystemStore = fileSystemStore;
         }
 
         public static IIntervalCollection IntervalCollection { get; private set; }
+
+        public static IFileSystemStore FileSystemStore { get; private set; }
 
         public void Start()
         {
