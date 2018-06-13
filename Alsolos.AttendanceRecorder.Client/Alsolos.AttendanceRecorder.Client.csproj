@@ -73,6 +73,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FileSystem\FileSystemService.cs" />
+    <Compile Include="FileSystem\FileSystemView.xaml.cs">
+      <DependentUpon>FileSystemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileSystem\FileSystemViewModel.cs" />
+    <Compile Include="WebApi\WebApiClient.cs" />
     <Compile Include="Models\IntervalPair.cs" />
     <Compile Include="Services\IntervalService.cs" />
     <Compile Include="Views\Converters\TimeSpanToTotalHoursConverter.cs" />
@@ -103,6 +109,10 @@
     <Compile Include="Views\Model\IntervalType.cs" />
     <Compile Include="Views\Model\YearMonth.cs" />
     <Compile Include="Views\Model\YearWeek.cs" />
+    <Page Include="FileSystem\FileSystemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DaysView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -182,6 +192,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AttendanceRecorder.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Intervals\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

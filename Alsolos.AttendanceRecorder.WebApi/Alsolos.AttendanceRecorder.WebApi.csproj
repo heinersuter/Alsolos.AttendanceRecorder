@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileSystem\FileSystemController.cs" />
     <Compile Include="FileSystem\IFileSystemStore.cs" />
     <Compile Include="Intervals\IntervalsController.cs" />
     <Compile Include="Intervals\IIntervalCollection.cs" />

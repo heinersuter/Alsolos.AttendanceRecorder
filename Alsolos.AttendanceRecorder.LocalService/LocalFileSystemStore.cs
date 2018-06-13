@@ -16,7 +16,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
         public LocalFileSystemStore()
         {
             LocalDirectory = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments);
-            LocalDirectory = Path.Combine(LocalDirectory, "..\\AttendanceRecorder");
+            LocalDirectory = Path.GetFullPath(Path.Combine(LocalDirectory, "..\\AttendanceRecorder"));
             if (!Directory.Exists(LocalDirectory))
             {
                 Directory.CreateDirectory(LocalDirectory);

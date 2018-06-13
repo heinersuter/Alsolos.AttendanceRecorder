@@ -1,14 +1,14 @@
-﻿namespace Alsolos.AttendanceRecorder.Client.Services
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Threading.Tasks;
-    using Alsolos.AttendanceRecorder.Client.Models;
-    using NLog;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using Alsolos.AttendanceRecorder.Client.Models;
+using NLog;
 
+namespace Alsolos.AttendanceRecorder.Client.Services
+{
     public class IntervalService
     {
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
@@ -35,7 +35,7 @@
             {
                 using (var client = InitClient())
                 {
-                    var response = await client.GetAsync($"api/intervals/range/{@from}/{to}");
+                    var response = await client.GetAsync($"api/intervals/range/{from}/{to}");
                     if (response.IsSuccessStatusCode)
                     {
                         var intervals = await response.Content.ReadAsAsync<IEnumerable<Interval>>();
