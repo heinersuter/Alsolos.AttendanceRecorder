@@ -15,8 +15,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
 
         public LocalFileSystemStore()
         {
-            LocalDirectory = Environment.GetFolderPath(Environment.SpecialFolder.CommonDocuments);
-            LocalDirectory = Path.GetFullPath(Path.Combine(LocalDirectory, "..\\AttendanceRecorder"));
+            LocalDirectory = @"C:\Users\hsu\Dropbox\Zühlke\AttendanceRecorder";
             if (!Directory.Exists(LocalDirectory))
             {
                 Directory.CreateDirectory(LocalDirectory);
@@ -40,7 +39,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
         {
             return Directory.GetFiles(LocalDirectory, "*.aar")
                 .SelectMany(file => File.ReadAllLines(file)
-                    .Select(s => DateTime.Parse(s, CultureInfo.InvariantCulture)));
+                    .Select(s => ParseDateTime(s)));
         }
 
         public void SaveRemoval(Interval interval)
@@ -67,6 +66,11 @@ namespace Alsolos.AttendanceRecorder.LocalService
             return Directory.GetFiles(LocalDirectory, "*.mer")
                 .SelectMany(file => File.ReadAllLines(file)
                     .Select(ParseInterval));
+        }
+
+        private static DateTime ParseDateTime(string line)
+        {
+            return DateTime.Parse(line, CultureInfo.InvariantCulture);
         }
 
         private static Interval ParseInterval(string line)
