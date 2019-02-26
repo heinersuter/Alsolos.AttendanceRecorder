@@ -15,7 +15,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
             _webApiStarter.Start();
         }
 
-        public void KeepAlive(string timeAccountName, TimeSpan updatePeriod)
+        public void KeepAlive()
         {
             _fileSystemStore.SaveLifeSign();
         }

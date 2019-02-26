@@ -79,6 +79,8 @@
       <DependentUpon>FileSystemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileSystem\FileSystemViewModel.cs" />
+    <Compile Include="Views\Converters\DurationToBlockWidthConverter.cs" />
+    <Compile Include="Views\Converters\IntervalTypeToColorConverter.cs" />
     <Compile Include="WebApi\WebApiClient.cs" />
     <Compile Include="Models\IntervalPair.cs" />
     <Compile Include="Services\IntervalService.cs" />

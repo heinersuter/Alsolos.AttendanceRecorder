@@ -39,7 +39,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
         {
             return Directory.GetFiles(LocalDirectory, "*.aar")
                 .SelectMany(file => File.ReadAllLines(file)
-                    .Select(s => ParseDateTime(s)));
+                    .Select(ParseDateTime));
         }
 
         public void SaveRemoval(Interval interval)

@@ -10,7 +10,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
 
-        private static readonly TimeSpan Treshhold = TimeSpan.FromMinutes(1);
+        private static readonly TimeSpan Threshold = TimeSpan.FromMinutes(1);
 
         public static IEnumerable<Interval> CombineToIntervals(this IEnumerable<DateTime> lifeSigns)
         {
@@ -23,7 +23,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
                     Logger.Trace($"Combine: New interval created starting with {lifeSign:s}");
                 }
 
-                if (currentInterval.Start.Date == lifeSign.Date && currentInterval.End.Add(Treshhold) > lifeSign)
+                if (currentInterval.Start.Date == lifeSign.Date && currentInterval.End.Add(Threshold) > lifeSign)
                 {
                     currentInterval.End = lifeSign;
                 }

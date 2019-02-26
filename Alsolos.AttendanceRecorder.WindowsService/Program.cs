@@ -9,7 +9,7 @@
         {
             if (!Environment.UserInteractive)
             {
-                var servicesToRun = new ServiceBase[] { new AttendanceRecorderWindowsService(), };
+                var servicesToRun = new ServiceBase[] { new AttendanceRecorderWindowsService() };
                 ServiceBase.Run(servicesToRun);
             }
             else

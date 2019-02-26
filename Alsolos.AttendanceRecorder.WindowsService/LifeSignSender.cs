@@ -46,7 +46,7 @@
                 {
                     if (Settings.Default.UserName == InteractiveUser.GetInteractiveUser())
                     {
-                        _service.KeepAlive(Settings.Default.TimeAccountName, _updatePeriod);
+                        _service.KeepAlive();
                     }
                 }
                 Thread.Sleep(_updatePeriod);

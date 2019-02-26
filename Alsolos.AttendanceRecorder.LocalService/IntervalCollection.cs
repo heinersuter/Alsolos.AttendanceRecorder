@@ -17,10 +17,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
             _fileSystemStore = fileSystemStore;
         }
 
-        public IEnumerable<Interval> Intervals
-        {
-            get { return ReadAllIntervals(); }
-        }
+        public IEnumerable<Interval> Intervals => ReadAllIntervals();
 
         public bool Remove(Interval interval)
         {

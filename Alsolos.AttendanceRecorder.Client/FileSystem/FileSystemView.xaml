@@ -8,6 +8,7 @@
              d:DataContext="{d:DesignInstance fileSystem:FileSystemViewModel}">
     
     <Button Content="Open Local Folder"
-            Command="{Binding OpenLocalDirectoryCommand}"/>
+            Command="{Binding OpenLocalDirectoryCommand}"
+            Padding="4 0"/>
 
 </UserControl>

@@ -17,7 +17,7 @@
 
         <GridSplitter Grid.Column="1" Width="8"/>
 
-        <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Visible">
+        <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
             <views:DaysView DataContext="{Binding DaysViewModel}"/>
         </ScrollViewer>
 

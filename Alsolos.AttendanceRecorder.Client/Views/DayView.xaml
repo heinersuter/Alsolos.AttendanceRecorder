@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:Alsolos.AttendanceRecorder.Client.Views"
              xmlns:commons="http://alsolos.ch/Commons/Wpf"
+             xmlns:converters="clr-namespace:Alsolos.AttendanceRecorder.Client.Views.Converters"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance views:DayViewModel}">
 
@@ -39,6 +40,39 @@
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
 
+            <Viewbox Stretch="Fill" StretchDirection="Both" Height="24" Margin="8 8 8 0">
+                <ItemsControl ItemsSource="{Binding Intervals}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Border Width="{Binding Duration, Converter={converters:DurationToBlockWidthConverter}}" 
+                                        Height="24"
+                                        Background="{Binding Type, Converter={converters:IntervalTypeToColorConverter}}"
+                                        ToolTipService.ShowDuration="30000">
+                                    <Border.ToolTip>
+                                        <ToolTip BorderBrush="Gray" BorderThickness="1" Background="LightGray">
+                                            <StackPanel>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Start}"/>
+                                                    <TextBlock Text=" - "/>
+                                                    <TextBlock Text="{Binding End}"/>
+                                                </StackPanel>
+                                                <TextBlock Text="{Binding Duration}"/>
+                                                <TextBlock Text="{Binding Type}"/>
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Border.ToolTip>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Viewbox>
         </StackPanel>
     </commons:BusyContentControl>
 
