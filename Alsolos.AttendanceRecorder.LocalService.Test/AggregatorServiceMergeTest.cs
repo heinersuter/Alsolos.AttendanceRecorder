@@ -26,5 +26,24 @@ namespace Alsolos.AttendanceRecorder.LocalService.Test
             results[0].Start.Minute.Should().Be(0);
             results[0].End.Minute.Should().Be(4);
         }
+
+        [TestMethod]
+        public void Merge_SingleInterval_MergeExtendsInterval()
+        {
+            var intervals = new[]
+            {
+                Helper.CreateInterval(0, 1)
+            };
+            var merges = new[]
+            {
+                Helper.CreateInterval(1, 2)
+            };
+
+            var results = intervals.Merge(merges).ToList();
+
+            results.Should().HaveCount(1);
+            results[0].Start.Minute.Should().Be(0);
+            results[0].End.Minute.Should().Be(2);
+        }
     }
 }

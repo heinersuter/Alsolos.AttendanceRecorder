@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregatorServiceCombineTest.cs" />
+    <Compile Include="AggregatorServiceDoIntervalsTouchTest.cs" />
     <Compile Include="AggregatorServiceMergeTest.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

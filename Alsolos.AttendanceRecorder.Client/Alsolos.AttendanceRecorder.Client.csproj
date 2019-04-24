@@ -79,6 +79,10 @@
       <DependentUpon>FileSystemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="FileSystem\FileSystemViewModel.cs" />
+    <Compile Include="Views\ChangeStartWindowView.xaml.cs">
+      <DependentUpon>ChangeStartWindowView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChangeStartWindowViewModel.cs" />
     <Compile Include="Views\Converters\DurationToBlockWidthConverter.cs" />
     <Compile Include="Views\Converters\IntervalTypeToColorConverter.cs" />
     <Compile Include="WebApi\WebApiClient.cs" />
@@ -113,6 +117,10 @@
     <Compile Include="Views\Model\YearMonth.cs" />
     <Compile Include="Views\Model\YearWeek.cs" />
     <Page Include="FileSystem\FileSystemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ChangeStartWindowView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,7 +205,7 @@
     <Resource Include="AttendanceRecorder.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Intervals\" />
+    <Resource Include="Images\ChangeStart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -58,7 +58,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
         public void SaveMerge(IntervalPair intervalPair)
         {
             var filePath = Path.Combine(LocalDirectory, $"{intervalPair.Interval1.Start:yyyy-MM-dd}.mer");
-            File.AppendAllText(filePath, $"{intervalPair.Interval1.End:O} - {intervalPair.Interval2.Start:O}" + Environment.NewLine);
+            File.AppendAllText(filePath, $"{intervalPair.Interval1.Start:O} - {intervalPair.Interval2.End:O}" + Environment.NewLine);
         }
 
         public IEnumerable<Interval> LoadAllMerges()

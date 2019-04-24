@@ -1,15 +1,15 @@
-﻿namespace Alsolos.AttendanceRecorder.Client.Views
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Timers;
-    using Alsolos.AttendanceRecorder.Client.Models;
-    using Alsolos.AttendanceRecorder.Client.Services;
-    using Alsolos.AttendanceRecorder.Client.Views.Model;
-    using Alsolos.Commons.Wpf.Controls.Progress;
-    using Alsolos.Commons.Wpf.Mvvm;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Timers;
+using Alsolos.AttendanceRecorder.Client.Models;
+using Alsolos.AttendanceRecorder.Client.Services;
+using Alsolos.AttendanceRecorder.Client.Views.Model;
+using Alsolos.Commons.Wpf.Controls.Progress;
+using Alsolos.Commons.Wpf.Mvvm;
 
+namespace Alsolos.AttendanceRecorder.Client.Views
+{
     public class DayViewModel : BusyViewModel, IDisposable
     {
         public static readonly TimeSpan Midnight = new TimeSpan(23, 59, 59);
@@ -35,14 +35,14 @@
 
         public DateTime Date
         {
-            get { return BackingFields.GetValue<DateTime>(); }
-            private set { BackingFields.SetValue(value); }
+            get => BackingFields.GetValue<DateTime>();
+            private set => BackingFields.SetValue(value);
         }
 
         public IList<IntervalViewModel> Intervals
         {
-            get { return BackingFields.GetValue<IList<IntervalViewModel>>(); }
-            private set { BackingFields.SetValue(value); }
+            get => BackingFields.GetValue<IList<IntervalViewModel>>();
+            private set => BackingFields.SetValue(value);
         }
 
         public TimeSpan TotalTime
@@ -57,20 +57,37 @@
 
         public bool IsExpanded
         {
-            get { return BackingFields.GetValue<bool>(); }
-            set { BackingFields.SetValue(value); }
+            get => BackingFields.GetValue<bool>();
+            set => BackingFields.SetValue(value);
         }
 
-        public DelegateCommand<IntervalViewModel> DeleteCommand
-        {
-            get { return BackingFields.GetCommand<IntervalViewModel>(Delete); }
-        }
+        public DelegateCommand<IntervalViewModel> ChangeStartCommand => BackingFields.GetCommand<IntervalViewModel>(ChangeStart);
+
+        public DelegateCommand<IntervalViewModel> DeleteCommand => BackingFields.GetCommand<IntervalViewModel>(Delete);
 
         public void Dispose()
         {
             if (_timer != null)
             {
                 _timer.Dispose();
+            }
+        }
+
+        private async void ChangeStart(IntervalViewModel interval)
+        {
+            var previous = Intervals[Intervals.IndexOf(interval) - 1];
+            var changeStartWindowViewModel = new ChangeStartWindowViewModel(previous);
+            var dialogResult = new ChangeStartWindowView
+            {
+                DataContext = changeStartWindowViewModel
+            }.ShowDialog();
+            if (dialogResult == true)
+            {
+                using (BusyHelper.Enter("Changing start..."))
+                {
+                    await _intervalService.MergeIntervalsAsync(changeStartWindowViewModel.GetNewInterval(), interval.AsInterval());
+                    ReloadIntervals();
+                }
             }
         }
 

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:Alsolos.AttendanceRecorder.Client.Views"
              xmlns:converters="http://alsolos.ch/Commons/Wpf"
+             xmlns:model="clr-namespace:Alsolos.AttendanceRecorder.Client.Views.Model"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance views:IntervalViewModel}">
     <UserControl.Style>
@@ -30,6 +31,7 @@
             <ColumnDefinition Width="Auto" SharedSizeGroup="EndGroup"/>
             <ColumnDefinition Width="Auto" SharedSizeGroup="DurationGroup"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="ChangeStartGroup"/>
             <ColumnDefinition Width="Auto" SharedSizeGroup="DeleteGroup"/>
         </Grid.ColumnDefinitions>
 
@@ -38,7 +40,14 @@
         <TextBlock Grid.Column="2" Text="{Binding End}" Margin="0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <TextBlock Grid.Column="3" Text="{Binding Duration}" Margin="16 0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
         <TextBlock Grid.Column="4" Text="{Binding Type}" VerticalAlignment="Center"/>
-        <Button Grid.Column="5" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:DayView}}}" 
+        
+        <Button Grid.Column="5" Command="{Binding DataContext.ChangeStartCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:DayView}}}" 
+            CommandParameter="{Binding}" Width="20" Height="20" Margin="2" Background="Transparent" BorderThickness="0"
+            Visibility="{Binding Type, Converter={converters:EqualityToVisibilityConverter}, ConverterParameter={x:Static model:IntervalType.Active}}">
+            <Image Source="/Images/ChangeStart.png"/>
+        </Button>
+        
+        <Button Grid.Column="6" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:DayView}}}" 
             CommandParameter="{Binding}" Width="20" Height="20" Margin="2" Background="Transparent" BorderThickness="0"
             Visibility="{Binding IsDeletePossible, Converter={converters:BoolToVisibilityConverter}}">
             <Image Source="/Images/Delete.png"/>

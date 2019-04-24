@@ -6,11 +6,11 @@ using NLog;
 
 namespace Alsolos.AttendanceRecorder.LocalService
 {
-    public static partial class AggregatorService
+    public static class AggregatorService
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
-
         private static readonly TimeSpan Threshold = TimeSpan.FromMinutes(1);
+        private static readonly IntervalComparer IntervalComparer = new IntervalComparer();
 
         public static IEnumerable<Interval> CombineToIntervals(this IEnumerable<DateTime> lifeSigns)
         {
@@ -41,7 +41,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
 
         public static IEnumerable<Interval> Remove(this IEnumerable<Interval> intervals, IEnumerable<Interval> removals)
         {
-            return intervals.Except(removals, new IntervalComparer());
+            return intervals.Except(removals, IntervalComparer);
         }
 
         public static IEnumerable<Interval> Merge(this IEnumerable<Interval> intervals, IEnumerable<Interval> merges)
@@ -50,8 +50,10 @@ namespace Alsolos.AttendanceRecorder.LocalService
 
             foreach (var merge in merges)
             {
-                var intervalsToMerge = newIntervals.Where(interval => interval.End >= merge.Start && interval.Start <= merge.End)
+                var intervalsToMerge = newIntervals
+                    .Where(interval => interval.DoIntervalsTouch(merge))
                     .OrderBy(interval => interval.Start).ToList();
+
                 if (intervalsToMerge.Any())
                 {
                     foreach (var intervalToRemove in intervalsToMerge)
@@ -60,13 +62,28 @@ namespace Alsolos.AttendanceRecorder.LocalService
                         Logger.Trace($"Merge: Intervall removed: {intervalToRemove.Start:s} - {intervalToRemove.End:s}");
                     }
 
-                    var newInterval = new Interval { Start = intervalsToMerge.First().Start, End = intervalsToMerge.Last().End };
+                    var newInterval = new Interval { Start = Min(merge.Start, intervalsToMerge.First().Start), End = Max(merge.End, intervalsToMerge.Last().End) };
                     newIntervals.Add(newInterval);
                     Logger.Trace($"Merge: New interval added: {newInterval.Start:s} - {newInterval.End:s}");
                 }
             }
 
             return newIntervals;
+        }
+
+        public static bool DoIntervalsTouch(this Interval first, Interval second)
+        {
+            return first.Start <= second.End && first.End >= second.Start;
+        }
+
+        private static DateTime Min(DateTime first, DateTime second)
+        {
+            return first <= second ? first : second;
+        }
+
+        private static DateTime Max(DateTime first, DateTime second)
+        {
+            return first >= second ? first : second;
         }
     }
 }
