@@ -13,9 +13,9 @@ namespace Alsolos.AttendanceRecorder.LocalService
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
 
-        public LocalFileSystemStore()
+        public LocalFileSystemStore(string localDirectory)
         {
-            LocalDirectory = @"C:\Users\hsu\Dropbox\Zühlke\AttendanceRecorder";
+            LocalDirectory = localDirectory;
             if (!Directory.Exists(LocalDirectory))
             {
                 Directory.CreateDirectory(LocalDirectory);

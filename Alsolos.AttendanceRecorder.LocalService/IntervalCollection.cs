@@ -51,7 +51,7 @@ namespace Alsolos.AttendanceRecorder.LocalService
             intervals = intervals.Merge(merges).ToList();
             Logger.Trace($"IntervalCollection: Intervals after merge: {intervals.Count}");
 
-            return intervals.OrderBy(interval => interval.Start);
+            return intervals.Where(interval => interval != null).OrderBy(interval => interval.Start).ToList();
         }
     }
 }

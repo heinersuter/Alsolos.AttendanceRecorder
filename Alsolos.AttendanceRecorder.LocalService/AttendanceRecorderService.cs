@@ -5,11 +5,12 @@ namespace Alsolos.AttendanceRecorder.LocalService
 {
     public class AttendanceRecorderService : IDisposable
     {
-        private readonly LocalFileSystemStore _fileSystemStore = new LocalFileSystemStore();
+        private readonly LocalFileSystemStore _fileSystemStore;
         private readonly WebApiStarter _webApiStarter;
 
-        public AttendanceRecorderService()
+        public AttendanceRecorderService(string localDirectory)
         {
+            _fileSystemStore = new LocalFileSystemStore(localDirectory);
             var intervalAggregator = new IntervalCollection(_fileSystemStore);
             _webApiStarter = new WebApiStarter(intervalAggregator, _fileSystemStore);
             _webApiStarter.Start();
