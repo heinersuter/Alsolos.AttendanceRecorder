@@ -9,6 +9,7 @@ var options = new WebApplicationOptions
 
 var builder = WebApplication.CreateBuilder(options);
 
+// https://stackoverflow.com/questions/65128031/net-core-3-service-service-manager-wont-wait-for-service-startup
 builder.Host.UseWindowsService();
 builder.WebHost.UseUrls("http://localhost:5005");
 
@@ -19,7 +20,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHostedService<Worker>();
+builder.Services.AddHostedService<LifeSignWorker>();
 
 var app = builder.Build();
 
