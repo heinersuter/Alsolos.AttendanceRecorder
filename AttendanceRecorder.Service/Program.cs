@@ -1,4 +1,4 @@
-using AttendanceRecorder.Service;
+using AttendanceRecorder.Service.LifeSign;
 using Microsoft.Extensions.Hosting.WindowsServices;
 
 var options = new WebApplicationOptions
@@ -9,7 +9,6 @@ var options = new WebApplicationOptions
 
 var builder = WebApplication.CreateBuilder(options);
 
-// https://stackoverflow.com/questions/65128031/net-core-3-service-service-manager-wont-wait-for-service-startup
 builder.Host.UseWindowsService();
 builder.WebHost.UseUrls("http://localhost:5005");
 
@@ -20,7 +19,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHostedService<LifeSignWorker>();
+builder.Services.AddSingleton<LifeSignWorker>(new LifeSignWorker());
+
+if (!Environment.UserInteractive)
+{
+    builder.Services.AddSingleton<IHostLifetime, CustomWindowsServiceLifetime>();
+}
 
 var app = builder.Build();
 

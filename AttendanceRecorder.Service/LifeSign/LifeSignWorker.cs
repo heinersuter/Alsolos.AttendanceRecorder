@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace AttendanceRecorder.Service
+namespace AttendanceRecorder.Service.LifeSign
 {
     public class LifeSignWorker : IHostedService
     {
@@ -14,6 +14,7 @@ namespace AttendanceRecorder.Service
         {
             _backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
             _backgroundWorker.RunWorkerAsync();
+            _runEvent.Set();
         }
 
         public async Task StartAsync(CancellationToken cancellationToken)
