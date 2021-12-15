@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.Commons.Wpf", "..\A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.LocalService.Test", "Alsolos.AttendanceRecorder.LocalService.Test\Alsolos.AttendanceRecorder.LocalService.Test.csproj", "{D1A5CECA-3875-464F-BC5F-47D3716793EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceRecorder.Service", "AttendanceRecorder.Service\AttendanceRecorder.Service.csproj", "{CBABEC54-0DD7-4631-AE11-04350E8A6A02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceRecorder.Service", "AttendanceRecorder.Service\AttendanceRecorder.Service.csproj", "{CBABEC54-0DD7-4631-AE11-04350E8A6A02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceRecorder.WindowsService", "AttendanceRecorder.WindowsService\AttendanceRecorder.WindowsService.csproj", "{03220607-E110-441B-A81B-C4076E32511A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{CBABEC54-0DD7-4631-AE11-04350E8A6A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBABEC54-0DD7-4631-AE11-04350E8A6A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBABEC54-0DD7-4631-AE11-04350E8A6A02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03220607-E110-441B-A81B-C4076E32511A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03220607-E110-441B-A81B-C4076E32511A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03220607-E110-441B-A81B-C4076E32511A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03220607-E110-441B-A81B-C4076E32511A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
