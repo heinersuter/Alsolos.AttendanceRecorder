@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="ServiceEvents\CustomWindowsServiceLifetime.cs">
+    <Compile Update="Lifetime\CustomWindowsServiceLifetime.cs">
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>

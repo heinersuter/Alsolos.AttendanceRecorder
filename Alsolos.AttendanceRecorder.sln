@@ -15,9 +15,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.Commons.Wpf", "..\A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.LocalService.Test", "Alsolos.AttendanceRecorder.LocalService.Test\Alsolos.AttendanceRecorder.LocalService.Test.csproj", "{D1A5CECA-3875-464F-BC5F-47D3716793EB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceRecorder.Service", "AttendanceRecorder.Service\AttendanceRecorder.Service.csproj", "{CBABEC54-0DD7-4631-AE11-04350E8A6A02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceRecorder.WindowsService", "AttendanceRecorder.WindowsService\AttendanceRecorder.WindowsService.csproj", "{03220607-E110-441B-A81B-C4076E32511A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceRecorder.WindowsService", "AttendanceRecorder.WindowsService\AttendanceRecorder.WindowsService.csproj", "{03220607-E110-441B-A81B-C4076E32511A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C98AE8E4-A799-457C-9081-188C13A95288}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,10 +52,6 @@ Global
 		{D1A5CECA-3875-464F-BC5F-47D3716793EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1A5CECA-3875-464F-BC5F-47D3716793EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1A5CECA-3875-464F-BC5F-47D3716793EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CBABEC54-0DD7-4631-AE11-04350E8A6A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBABEC54-0DD7-4631-AE11-04350E8A6A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBABEC54-0DD7-4631-AE11-04350E8A6A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBABEC54-0DD7-4631-AE11-04350E8A6A02}.Release|Any CPU.Build.0 = Release|Any CPU
 		{03220607-E110-441B-A81B-C4076E32511A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{03220607-E110-441B-A81B-C4076E32511A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03220607-E110-441B-A81B-C4076E32511A}.Release|Any CPU.ActiveCfg = Release|Any CPU

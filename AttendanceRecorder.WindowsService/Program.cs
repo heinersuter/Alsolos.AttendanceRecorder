@@ -1,6 +1,5 @@
-using AttendanceRecorder.WindowsService;
 using AttendanceRecorder.WindowsService.LifeSign;
-using AttendanceRecorder.WindowsService.ServiceEvents;
+using AttendanceRecorder.WindowsService.Lifetime;
 using Serilog;
 using Serilog.Events;
 
@@ -13,15 +12,15 @@ Log.Logger = new LoggerConfiguration()
             .CreateLogger();
 
 IHost host = Host.CreateDefaultBuilder(args)
-    .UseSerilog()
     .UseWindowsService()
+    .UseSerilog(logger:Log.Logger)
     .ConfigureServices(services =>
     {
-        services.AddSingleton<LifeSignWorker, LifeSignWorker>();
-        //services.AddHostedService<LifeSignWorker>();
+        services.AddSingleton<LifeSignService>();
         services.AddSingleton<IHostLifetime, CustomWindowsServiceLifetime>();
-        services.AddHostedService<Worker>();
     })
     .Build();
+
+System.ServiceProcess.ServiceBase.Run(new LifetimeService(host.Services.GetRequiredService<Microsoft.Extensions.Logging.ILogger<LifetimeService>>()));
 
 await host.RunAsync();

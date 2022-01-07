@@ -104,6 +104,9 @@
     <Compile Include="LifeSignSender.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="app.config" />
     <None Include="install.bat" />
     <Content Include="NLog.config">

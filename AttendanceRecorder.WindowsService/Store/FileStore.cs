@@ -10,9 +10,9 @@
             }
         }
 
-        public string LocalDirectory { get; } = @"C:\Users\e001150\source\repos\Alsolos.AttendanceRecorder\AttendanceRecorder.WindowsService\bin\Debug\store";
+        public string LocalDirectory { get; } = @"C:\Users\e001150\source\repos\AttendanceRecorder\AttendanceRecorder.WindowsService\bin\Debug\store";
 
-        public void SaveLifeSign()
+        public void WriteLifeSign()
         {
             var lifeSign = DateTime.Now;
             lifeSign = lifeSign.AddTicks(-(lifeSign.Ticks % TimeSpan.TicksPerSecond));
