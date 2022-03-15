@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Alsolos.AttendanceRecorder.Service</AssemblyName>
+    <RootNamespace>Alsolos.AttendanceRecorder.Service</RootNamespace>
+  </PropertyGroup>
+
+
+</Project>
