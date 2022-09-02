@@ -21,6 +21,8 @@ public partial class Service : ServiceBase
 
         _backgroundWorker.DoWork += BackgroundWorkerOnDoWork;
         _backgroundWorker.RunWorkerAsync();
+
+
     }
 
     protected override void OnStart(string[] args)
