@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Alsolos.AttendanceRecorder.WindowsService {
+namespace AttendanceRecorder.WindowsService {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -23,12 +23,15 @@ namespace Alsolos.AttendanceRecorder.WindowsService {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\hsu\\OneDrive - Zühlke Engineering AG\\AttendanceRecorder")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\hsu\\OneDrive - Zühlke Engineering AG\\AttendanceRecorder\\New")]
         public string LocalDirectory {
             get {
                 return ((string)(this["LocalDirectory"]));
+            }
+            set {
+                this["LocalDirectory"] = value;
             }
         }
     }

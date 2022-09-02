@@ -90,7 +90,6 @@
     <Compile Include="AttendanceRecorderWindowsService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="InteractiveUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Settings.Designer.cs">
       <AutoGen>True</AutoGen>

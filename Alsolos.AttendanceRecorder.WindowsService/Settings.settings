@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="LocalDirectory" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">C:\Users\e001150\Documents\AttendanceRecorder</Value>
+      <Value Profile="(Default)">C:\Users\hsu\OneDrive - Zühlke Engineering AG\AttendanceRecorder</Value>
     </Setting>
   </Settings>
 </SettingsFile>
