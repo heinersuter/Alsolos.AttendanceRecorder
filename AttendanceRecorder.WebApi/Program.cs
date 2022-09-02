@@ -1,20 +1,21 @@
+using AttendanceRecorder.WebApi;
+using AttendanceRecorder.WebApi.Weeks;
 using Microsoft.Extensions.Hosting.WindowsServices;
 
-var options = new WebApplicationOptions
+var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
     Args = args,
     ContentRootPath = WindowsServiceHelpers.IsWindowsService() ? AppContext.BaseDirectory : default,
-};
-var builder = WebApplication.CreateBuilder(options);
+});
+builder.Host.UseWindowsService();
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Host.UseWindowsService();
+builder.Services.AddScoped<WeeksService>();
+builder.Services.Configure<FileSystemOptions>(builder.Configuration.GetSection("FileSystemOptions"));
 
 var app = builder.Build();
 
@@ -24,10 +25,6 @@ var app = builder.Build();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
 
 app.MapControllers();
 
