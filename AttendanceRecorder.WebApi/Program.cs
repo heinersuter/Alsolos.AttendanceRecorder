@@ -1,4 +1,6 @@
 using AttendanceRecorder.WebApi;
+using AttendanceRecorder.WebApi.FileSystem;
+using AttendanceRecorder.WebApi.Periods;
 using AttendanceRecorder.WebApi.Weeks;
 using Microsoft.Extensions.Hosting.WindowsServices;
 
@@ -14,18 +16,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<FileService>();
 builder.Services.AddScoped<WeeksService>();
+builder.Services.AddScoped<PeriodService>();
+
 builder.Services.Configure<FileSystemOptions>(builder.Configuration.GetSection("FileSystemOptions"));
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.MapControllers();
-
 app.Run();

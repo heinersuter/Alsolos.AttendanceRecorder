@@ -1,7 +1,7 @@
 using Mapster;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AttendanceRecorder.WebApi.Weeks;
+namespace AttendanceRecorder.WebApi.Weeks.Api;
 
 [ApiController]
 [Route("api/weeks")]
@@ -16,9 +16,8 @@ public class WeeksController : ControllerBase
 
     [HttpGet]
     [Route("")]
-    public IEnumerable<WeekDto> GetWeeks()
+    public IEnumerable<YearWeekDto> GetWeeks()
     {
-        TypeAdapterConfig<Date, DateDto>.NewConfig();
-        return _weeksService.FindAvailableWeeks().Select(week => week.Adapt<WeekDto>());
+        return _weeksService.FindAvailableWeeks().Select(week => week.Adapt<YearWeekDto>());
     }
 }
