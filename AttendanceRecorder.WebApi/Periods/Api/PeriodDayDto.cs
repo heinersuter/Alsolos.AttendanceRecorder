@@ -3,4 +3,6 @@
 public class PeriodDayDto
 {
     public DateOnly Date { get; set; }
+    
+    public IEnumerable<Period> Periods { get; set; }
 }

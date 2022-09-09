@@ -1,8 +1,13 @@
-using AttendanceRecorder.WebApi;
 using AttendanceRecorder.WebApi.FileSystem;
 using AttendanceRecorder.WebApi.Periods;
 using AttendanceRecorder.WebApi.Weeks;
 using Microsoft.Extensions.Hosting.WindowsServices;
+using AttendanceRecorder.WebApi.FrameworkExtensions;
+using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel;
+
+TypeDescriptor.AddAttributes(typeof(DateOnly), new TypeConverterAttribute(typeof(DateOnlyTypeConverter)));
+TypeDescriptor.AddAttributes(typeof(TimeOnly), new TypeConverterAttribute(typeof(TimeOnlyTypeConverter)));
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 {
@@ -10,6 +15,12 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
     ContentRootPath = WindowsServiceHelpers.IsWindowsService() ? AppContext.BaseDirectory : default,
 });
 builder.Host.UseWindowsService();
+
+builder.Services.Configure<JsonOptions>(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new DateOnlyConverter());
+    options.JsonSerializerOptions.Converters.Add(new TimeOnlyConverter());
+});
 
 // Add services to the container.
 builder.Services.AddControllers();

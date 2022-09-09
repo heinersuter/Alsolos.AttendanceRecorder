@@ -15,8 +15,8 @@ public class PeriodController : ControllerBase
     }
 
     [HttpGet]
-    [Route("firstDate/lastDate")]
-    public IEnumerable<PeriodDayDto> GetPeriods([FromRoute] DateOnly firstDate, [FromRoute] DateOnly lastDate)
+    [Route("")]
+    public IEnumerable<PeriodDayDto> GetPeriods([FromQuery] DateOnly firstDate, [FromQuery] DateOnly lastDate)
     {
         return _periodService.GetPeriodDays(firstDate, lastDate).Select(period => period.Adapt<PeriodDayDto>());
     }

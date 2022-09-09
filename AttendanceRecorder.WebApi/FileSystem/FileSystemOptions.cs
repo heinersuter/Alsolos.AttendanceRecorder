@@ -1,4 +1,4 @@
-﻿namespace AttendanceRecorder.WebApi;
+﻿namespace AttendanceRecorder.WebApi.FileSystem;
 
 public class FileSystemOptions
 {
