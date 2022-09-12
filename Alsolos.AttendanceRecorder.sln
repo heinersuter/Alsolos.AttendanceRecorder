@@ -3,18 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.WindowsService", "Alsolos.AttendanceRecorder.WindowsService\Alsolos.AttendanceRecorder.WindowsService.csproj", "{743E2A54-3EB4-4782-8D99-D1484470D17B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.LocalService", "Alsolos.AttendanceRecorder.LocalService\Alsolos.AttendanceRecorder.LocalService.csproj", "{C103A88A-DDFF-411E-9D40-B17B337ED2BE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.Client", "Alsolos.AttendanceRecorder.Client\Alsolos.AttendanceRecorder.Client.csproj", "{9E552B7A-4E38-400F-B898-E50F21B3CC7C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.WebApi", "Alsolos.AttendanceRecorder.WebApi\Alsolos.AttendanceRecorder.WebApi.csproj", "{3CB90043-46A2-46ED-9806-40D7EC205134}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.Commons.Wpf", "..\Alsolos.Commons.Wpf\Alsolos.Commons.Wpf\Alsolos.Commons.Wpf.csproj", "{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alsolos.AttendanceRecorder.LocalService.Test", "Alsolos.AttendanceRecorder.LocalService.Test\Alsolos.AttendanceRecorder.LocalService.Test.csproj", "{D1A5CECA-3875-464F-BC5F-47D3716793EB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C98AE8E4-A799-457C-9081-188C13A95288}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
@@ -25,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceRecorder.WindowsS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceRecorder.WebApi", "AttendanceRecorder.WebApi\AttendanceRecorder.WebApi.csproj", "{52268A5C-60EA-4103-AD51-563A3F56A301}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AttendanceRecorder.WebHost", "AttendanceRecorder.WebHost\AttendanceRecorder.WebHost.csproj", "{D1740724-7F32-44EE-8C40-7F5B075BB985}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AttendanceRecorder.WebHost", "AttendanceRecorder.WebHost\AttendanceRecorder.WebHost.csproj", "{D1740724-7F32-44EE-8C40-7F5B075BB985}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,30 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{743E2A54-3EB4-4782-8D99-D1484470D17B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{743E2A54-3EB4-4782-8D99-D1484470D17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{743E2A54-3EB4-4782-8D99-D1484470D17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{743E2A54-3EB4-4782-8D99-D1484470D17B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C103A88A-DDFF-411E-9D40-B17B337ED2BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C103A88A-DDFF-411E-9D40-B17B337ED2BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C103A88A-DDFF-411E-9D40-B17B337ED2BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C103A88A-DDFF-411E-9D40-B17B337ED2BE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9E552B7A-4E38-400F-B898-E50F21B3CC7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9E552B7A-4E38-400F-B898-E50F21B3CC7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9E552B7A-4E38-400F-B898-E50F21B3CC7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9E552B7A-4E38-400F-B898-E50F21B3CC7C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3CB90043-46A2-46ED-9806-40D7EC205134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3CB90043-46A2-46ED-9806-40D7EC205134}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3CB90043-46A2-46ED-9806-40D7EC205134}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3CB90043-46A2-46ED-9806-40D7EC205134}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B0D4D546-6A3E-42BF-BE7D-CDE59AC33D44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D1A5CECA-3875-464F-BC5F-47D3716793EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D1A5CECA-3875-464F-BC5F-47D3716793EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D1A5CECA-3875-464F-BC5F-47D3716793EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D1A5CECA-3875-464F-BC5F-47D3716793EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A04E18AF-D3DB-4E1D-A129-79F90C421E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A04E18AF-D3DB-4E1D-A129-79F90C421E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A04E18AF-D3DB-4E1D-A129-79F90C421E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
