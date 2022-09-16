@@ -6,3 +6,6 @@ packages
 *.InstallLog
 StyleCop.Cache
 /.vs
+/attendance-recorder.web-ui/node_modules
+/attendance-recorder.web-ui/build
+/AttendanceRecorder.WebHost/wwwroot
